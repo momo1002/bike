@@ -308,3 +308,8 @@
 画面遷移図URL
 
 https://www.figma.com/design/ffGohu89EtTwTRDOu0QoG1/%E3%83%90%E3%82%A4%E3%82%AF%E3%82%A2%E3%83%97%E3%83%AA?node-id=3-62&p=f&t=RXMthy2cFtxM0Zj4-0
+
+
+ER図URL
+
+https://app.diagrams.net/#G1KRdhWj7cu1zAlQrLPg8EG3Pc906Wndxo#%7B%22pageId%22%3A%22jzxb4z-FtoaXpRYv9HVf%22%7D
