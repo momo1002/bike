@@ -46,3 +46,14 @@ group :development do
 end
 
 gem "dotenv-rails"
+
+group :development, :test do
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "database_cleaner-active_record"
+end
+
+gem "sprockets-rails"
+gem "bcrypt", "~> 3.1.7"
+

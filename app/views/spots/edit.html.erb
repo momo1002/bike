@@ -1,0 +1,31 @@
+<h2>スポット編集</h2>
+
+<div class="current-images">
+  <% @spot.images.each do |image| %>
+    <%= image_tag image, class: "spot-edit-image" %>
+  <% end %>
+</div>
+
+<%= form_with model: @spot, local: true do |f| %>
+  <div>
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :description, "説明" %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div>
+    <%= f.label :images, "画像を追加（複数OK）" %>
+    <%= f.file_field :images, multiple: true, accept: "image/*" %>
+  </div>
+
+  <%= f.submit "更新する" %>
+<% end %>

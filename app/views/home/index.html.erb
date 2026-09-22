@@ -1,0 +1,21 @@
+<div class="top-container">
+  <div class="top-header">
+    <h1 class="app-title">BikeSpot</h1>
+    <p class="app-description">
+      あなたの近くのおすすめスポットを簡単に探せるアプリです。
+    </p>
+    <img src="/logo.png" alt="アプリロゴ" class="app-logo">
+  </div>
+<div class="main-actions">
+  <%= link_to "スポット一覧を見る", spots_path, class: "btn main-btn" %>
+</div>
+<div class="auth-links">
+  <%= link_to "ログイン", login_path, class: "btn sub-btn" %>
+  <%= link_to "新規登録", signup_path, class: "btn sub-btn" %>
+  <% if current_user %>
+    <%= link_to "ログアウト", logout_path %>
+  <% end %>
+
+  <%= session[:user_id] %>
+
+</div>

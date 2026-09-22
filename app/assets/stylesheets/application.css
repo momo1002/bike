@@ -1,0 +1,18 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+ .icon-preview-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.icon-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

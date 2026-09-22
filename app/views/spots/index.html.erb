@@ -1,0 +1,23 @@
+<h2>スポット一覧</h2>
+
+<%= link_to "スポットを投稿する", new_spot_path, class: "post-button" %>
+
+<% @spots.each do |spot| %>
+  <%= link_to spot_path(spot) do %>
+    <div class="spot-card">
+      <% if spot.images.attached? %>
+        <%= image_tag spot.images.first, class: "spot-thumb" %>
+      <% end %>
+
+      <h3><%= spot.title %></h3>
+      <p><%= spot.description.truncate(50) %></p>
+
+      <div class="spot-user">
+        <% if spot.user.icon.attached? %>
+          <%= image_tag spot.user.icon, class: "user-icon" %>
+        <% end %>
+        <span><%= spot.user.username %></span>
+      </div>
+    </div>
+  <% end %>
+<% end %>

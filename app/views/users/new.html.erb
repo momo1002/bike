@@ -1,0 +1,60 @@
+<h1>ユーザー登録</h1>
+
+<%= form_with model: @user, url: signup_path, local: true do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error-messages">
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="icon-preview-wrapper">
+    <img id="icon-preview" class="icon-preview" src="/default_icon.png">
+  </div>
+
+  <%= f.file_field :icon, accept: "image/*", id: "icon-input" %>
+
+  <script>
+    document.getElementById("icon-input").addEventListener("change", function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        document.getElementById("icon-preview").src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+
+
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <%= f.submit "登録する" %>
+<% end %>

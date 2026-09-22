@@ -1,0 +1,118 @@
+.spot-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.spot-thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.user-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+.post-button {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+
+.post-button {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+
+.spot-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.spot-thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.user-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+.spot-detail-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.spot-detail-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+.spot-description {
+  font-size: 16px;
+  margin: 12px 0;
+}
+
+.spot-address {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.spot-user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #ccc;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.spot-edit-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 8px;
+  margin-bottom: 12px;
+}

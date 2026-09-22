@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BikeApp</title>
+    <%= stylesheet_link_tag "application", media: "all" %>
+  </head>
+  <body>
+    <%= yield %>
+    <% flash.each do |key, message| %>
+      <div class="flash <%= key %>">
+        <%= message %>
+      </div>
+    <% end %>
+  </body>
+</html>
