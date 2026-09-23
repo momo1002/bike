@@ -116,3 +116,43 @@
   margin-right: 8px;
   margin-bottom: 12px;
 }
+.edit-button {
+  padding: 10px 16px;
+  background-color: #2196f3;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.delete-button {
+  padding: 10px 16px;
+  background-color: #e53935;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c62828;
+}
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* ボタン間の余白を自動で作る */
+}
+.edit-button,
+.delete-button,
+.back-button {
+  width: fit-content; /* ボタンの幅を中身に合わせる */
+  padding: 10px 16px;
+}
+.created-at {
+  color: #777;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+

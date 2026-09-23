@@ -23,7 +23,15 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
 
+  resources :spots do
+    member do
+      delete :destroy
+    end
+  end
 
-
-
+  resources :spots do
+    member do
+      delete :delete_image
+    end
+  end
 end

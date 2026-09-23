@@ -2,9 +2,17 @@
 
 <div class="current-images">
   <% @spot.images.each do |image| %>
-    <%= image_tag image, class: "spot-edit-image" %>
-  <% end %>
-</div>
+  <div class="image-item">
+    <%= image_tag image, class: "spot-image" %>
+
+    <%= button_to "画像を削除する",
+          delete_image_spot_path(@spot, image_id: image.id),
+          method: :delete,
+          data: { confirm: "この画像を削除しますか？" },
+          class: "delete-image-button" %>
+  </div>
+<% end %>
+
 
 <%= form_with model: @spot, local: true do |f| %>
   <div>

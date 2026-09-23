@@ -13,6 +13,8 @@
 <div class="spot-user">
   <% if @spot.user.icon.attached? %>
     <%= image_tag @spot.user.icon, class: "user-icon" %>
+  <% else %>
+    <%= image_tag "default_icon.jpg", class: "user-icon" %>
   <% end %>
   <span><%= @spot.user.username %></span>
 </div>
@@ -23,3 +25,4 @@
 
 
 <%= link_to "一覧に戻る", spots_path, class: "back-button" %>
+<p class="created-at">作成日時：<%= @spot.created_at.strftime("%Y-%m-%d %H:%M") %></p>

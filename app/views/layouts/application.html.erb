@@ -5,11 +5,17 @@
     <%= stylesheet_link_tag "application", media: "all" %>
   </head>
   <body>
-    <%= yield %>
-    <% flash.each do |key, message| %>
-      <div class="flash <%= key %>">
-        <%= message %>
-      </div>
+  <header class="app-header">
+    <% if current_user %>
+      <span class="welcome">こんにちは、<%= current_user.username %> さん</span>
+      <%= link_to "ログアウト", logout_path, method: :delete, class: "header-link" %>
+    <% else %>
+      <%= link_to "ログイン", login_path, class: "header-link" %>
+      <%= link_to "新規登録", signup_path, class: "header-link" %>
     <% end %>
-  </body>
+  </header>
+
+  <%= yield %>
+</body>
+  
 </html>
