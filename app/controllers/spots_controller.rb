@@ -1,4 +1,7 @@
 class SpotsController < ApplicationController
+
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
+  
   def index
     @spots = Spot.includes(:user, images_attachments: :blob).order(created_at: :desc)
   end

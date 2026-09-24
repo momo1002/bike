@@ -20,9 +20,18 @@
 </div>
 
 <% if @spot.user == current_user %>
-  <%= link_to "編集する", edit_spot_path(@spot), class: "edit-button" %>
-<% end %>
+  <div class="button-group">
+    <%= link_to "編集する",
+        edit_spot_path(@spot),
+        class: "edit-button" %>
 
+    <%= button_to "削除する",
+        spot_path(@spot),
+        method: :delete,
+        form: { data: { turbo_confirm: "本当に削除しますか？" } },
+        class: "delete-button" %>
+  </div>
+<% end %>
 
 <%= link_to "一覧に戻る", spots_path, class: "back-button" %>
 <p class="created-at">作成日時：<%= @spot.created_at.strftime("%Y-%m-%d %H:%M") %></p>

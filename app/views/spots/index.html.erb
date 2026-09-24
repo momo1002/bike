@@ -1,6 +1,10 @@
 <h2>スポット一覧</h2>
 
-<%= link_to "スポットを投稿する", new_spot_path, class: "post-button" %>
+<% if current_user %>
+  <%= link_to "スポットを投稿する", new_spot_path, class: "post-button" %>
+<% else %>
+  <%= link_to "スポットを投稿する", login_path, class: "post-button" %>
+<% end %>
 
 <% @spots.each do |spot| %>
   <%= link_to spot_path(spot) do %>

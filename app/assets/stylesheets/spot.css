@@ -154,5 +154,8 @@
   font-size: 14px;
   margin-top: 8px;
 }
-
+.back-button {
+  display: inline-block;
+  margin-top: 16px;
+}
 
