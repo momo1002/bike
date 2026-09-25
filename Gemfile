@@ -67,3 +67,5 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
 end
+
+gem "json", "~> 2.10"
