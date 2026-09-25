@@ -66,7 +66,8 @@ RSpec.describe User, type: :model do
     it "password が最低文字数を満たしていること" do
       user = build(:user, password: "short")  # 例えば 5 文字
       expect(user).to_not be_valid
-      expect(user.errors[:password]).to include("is too short")
+      expect(user.errors[:password].first).to match(/is too short/)
+
     end
 
     it "password_digest が生成されること" do

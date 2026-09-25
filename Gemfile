@@ -58,3 +58,12 @@ gem "sprockets-rails"
 gem "bcrypt", "~> 3.1.7"
 
 gem "pg"
+
+group :test do
+  gem 'simplecov', require: false
+end
+
+group :development, :test do
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+end
