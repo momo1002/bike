@@ -1,0 +1,39 @@
+AllCops:
+  # Rails自動生成ファイルや設定ファイルをチェック対象から除外
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'Gemfile'
+
+# 日本語コメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# クラス冒頭のドキュメント用コメントを非必須化
+Style/Documentation:
+  Enabled: false
+
+# 1行の文字数制限を 120 文字に拡張
+Layout/LineLength:
+  Max: 120
+
+# 先頭の `# frozen_string_literal: true` を非必須化
+Style/FrozenStringLiteralComment:
+  Enabled: false
+  # メソッドの行数制限を無効化
+Metrics/MethodLength:
+  Enabled: false
+
+# コードの複雑さ（ABC size）の制限を無効化
+Metrics/AbcSize:
+  Enabled: false
+
+# ブロックの長さ制限を無効化
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'config/routes.rb'

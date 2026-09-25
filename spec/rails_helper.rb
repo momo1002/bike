@@ -1,14 +1,16 @@
-#require 'simplecov'
+# frozen_string_literal: true
 
-#SimpleCov.start 'rails' do
-  #add_filter '/spec/'
-#end
+# require 'simplecov'
+
+# SimpleCov.start 'rails' do
+# add_filter '/spec/'
+# end
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 # Uncomment the line below in case you have `--require rails_helper` in the `.rspec` file
 # that will avoid rails generators crashing because migrations haven't been run yet
 # return unless Rails.env.test?
@@ -83,4 +85,4 @@ RSpec.configure do |config|
   }, type: :request
 end
 
-Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }

@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 module AuthHelpers
   def login(user)
-    post "/api/v1/login", params: {
+    post '/api/v1/login', params: {
       email: user.email,
       password: user.password
     }
 
-    json["token"] # レスポンスから JWT を取り出す
+    json['token'] # レスポンスから JWT を取り出す
   end
 
   def auth_headers(user)
     token = login(user)
     {
-      "Authorization" => "Bearer #{token}"
+      'Authorization' => "Bearer #{token}"
     }
   end
 end

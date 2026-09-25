@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   helper_method :current_user
 
@@ -8,6 +10,6 @@ class ApplicationController < ActionController::Base
   def require_login
     return if current_user
 
-    redirect_to login_path, alert: "ログインしてください"
+    redirect_to login_path, alert: 'ログインしてください'
   end
 end

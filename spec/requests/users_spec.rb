@@ -1,16 +1,18 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe "Users", type: :request do
-  describe "POST /signup" do
-    context "登録情報が正しい場合" do
-      it "ユーザー登録に成功する" do
+require 'rails_helper'
+
+RSpec.describe 'Users', type: :request do
+  describe 'POST /signup' do
+    context '登録情報が正しい場合' do
+      it 'ユーザー登録に成功する' do
         expect do
           post signup_path, params: {
             user: {
-              username: "もも",
-              email: "momo@example.com",
-              password: "password",
-              password_confirmation: "password"
+              username: 'もも',
+              email: 'momo@example.com',
+              password: 'password',
+              password_confirmation: 'password'
             }
           }
         end.to change(User, :count).by(1)
@@ -19,15 +21,15 @@ RSpec.describe "Users", type: :request do
       end
     end
 
-    context "登録情報が不正な場合" do
-      it "ユーザー登録に失敗する" do
+    context '登録情報が不正な場合' do
+      it 'ユーザー登録に失敗する' do
         expect do
           post signup_path, params: {
             user: {
-              username: "",
-              email: "",
-              password: "123",
-              password_confirmation: "456"
+              username: '',
+              email: '',
+              password: '123',
+              password_confirmation: '456'
             }
           }
         end.not_to change(User, :count)
@@ -37,24 +39,24 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  context "既に登録済みのメールアドレスの場合" do
+  context '既に登録済みのメールアドレスの場合' do
     before do
       User.create!(
-        username: "既存ユーザー",
-        email: "momo@example.com",
-        password: "password",
-        password_confirmation: "password"
+        username: '既存ユーザー',
+        email: 'momo@example.com',
+        password: 'password',
+        password_confirmation: 'password'
       )
     end
 
-    it "ユーザー登録に失敗する" do
+    it 'ユーザー登録に失敗する' do
       expect do
         post signup_path, params: {
           user: {
-            username: "もも",
-            email: "momo@example.com",
-            password: "password",
-            password_confirmation: "password"
+            username: 'もも',
+            email: 'momo@example.com',
+            password: 'password',
+            password_confirmation: 'password'
           }
         }
       end.not_to change(User, :count)
