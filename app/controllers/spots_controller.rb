@@ -4,7 +4,11 @@ class SpotsController < ApplicationController
   before_action :require_login, only: %i[new create edit update destroy]
 
   def index
-    @spots = Spot.includes(:user, images_attachments: :blob).order(created_at: :desc)
+    @spots = Spot.includes(
+    :user,
+    { user: { icon_attachment: :blob } },
+    images_attachments: :blob
+    ).order(created_at: :desc)
   end
 
   def new
@@ -23,7 +27,10 @@ class SpotsController < ApplicationController
   end
 
   def show
-    @spot = Spot.find(params[:id])
+    @spot = Spot.includes(
+      { user: { icon_attachment: :blob } },
+      { images_attachments: :blob }
+    ).find(params[:id])
   end
 
   def edit

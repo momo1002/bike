@@ -71,3 +71,7 @@ group :development, :test do
 end
 
 gem 'json', '~> 2.10'
+
+group :development do
+  gem "bullet"
+end

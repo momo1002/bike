@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      spot:
+        title: タイトル
+        description: 説明
+        address: 住所
+        images: 画像
+
+      user:
+        email: メールアドレス

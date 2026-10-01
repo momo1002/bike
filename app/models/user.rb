@@ -7,7 +7,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[^@\s]+@[^@\s]+\z/
 
   validates :email, presence: true,
-                    uniqueness: true,
+                    uniqueness: {message: "の登録に失敗しました"},
                     format: { with: VALID_EMAIL_REGEX }
 
   validates :password, length: { minimum: 6 }
