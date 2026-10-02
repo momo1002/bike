@@ -21,12 +21,17 @@ RSpec.describe 'Spots', type: :request do
 
   describe 'POST /spots' do
     it 'スポットを投稿できる' do
+      image = fixture_file_upload(
+        Rails.root.join('spec/fixtures/files/test.jpg'),
+        'image/jpeg'
+      )
       expect do
         post spots_path, params: {
           spot: {
             title: '角島大橋',
             description: '絶景スポット',
-            address: '山口県下関市'
+            address: '山口県下関市',
+            images: [image]
           }
         }
       end.to change(Spot, :count).by(1)
@@ -57,13 +62,23 @@ RSpec.describe 'Spots', type: :request do
 
   describe 'GET /spots' do
     let!(:spot) do
-      Spot.create!(
+      spot = Spot.new(
         title: '秋吉台',
         description: '絶景ロード',
         address: '山口県',
         user: user
       )
-    end
+
+      spot.images.attach(
+        io: File.open(Rails.root.join('spec/fixtures/files/test.jpg')),
+        filename: 'test.jpg',
+        content_type: 'image/jpeg'
+      )
+
+      spot.save!
+
+      spot
+  end
 
     it '一覧ページを表示できる' do
       get spots_path
@@ -80,12 +95,21 @@ RSpec.describe 'Spots', type: :request do
 
   describe 'GET /spots/:id' do
     let!(:spot) do
-      Spot.create!(
+      spot = Spot.new(
         title: '角島大橋',
         description: '絶景スポット',
         address: '山口県下関市',
         user: user
       )
+
+      spot.images.attach(
+        io: File.open(Rails.root.join('spec/fixtures/files/test.jpg')),
+        filename: 'test.jpg',
+        content_type: 'image/jpeg'
+      )
+
+      spot.save!
+      spot
     end
 
     it '詳細ページを表示できる' do
@@ -111,12 +135,22 @@ RSpec.describe 'Spots', type: :request do
 
   describe 'PATCH /spots/:id' do
     let!(:spot) do
-      Spot.create!(
-        title: '角島大橋',
-        description: '絶景スポット',
-        address: '山口県下関市',
+      spot = Spot.new(
+        title: '秋吉台',
+        description: '絶景ロード',
+        address: '山口県',
         user: user
       )
+
+      spot.images.attach(
+        io: File.open(Rails.root.join('spec/fixtures/files/test.jpg')),
+        filename: 'test.jpg',
+        content_type: 'image/jpeg'
+      )
+
+      spot.save!
+
+      spot
     end
 
     it 'スポット情報を更新できる' do
@@ -140,12 +174,22 @@ RSpec.describe 'Spots', type: :request do
 
   describe 'DELETE /spots/:id' do
     let!(:spot) do
-      Spot.create!(
-        title: '角島大橋',
-        description: '絶景スポット',
-        address: '山口県下関市',
+      spot = Spot.new(
+        title: '秋吉台',
+        description: '絶景ロード',
+        address: '山口県',
         user: user
       )
+
+      spot.images.attach(
+        io: File.open(Rails.root.join('spec/fixtures/files/test.jpg')),
+        filename: 'test.jpg',
+        content_type: 'image/jpeg'
+      )
+
+      spot.save!
+
+      spot
     end
 
     it 'スポットを削除できる' do

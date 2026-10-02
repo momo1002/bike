@@ -9,3 +9,7 @@ ja:
 
       user:
         email: メールアドレス
+  errors:
+    messages:
+      blank: "を入力してください"
+      invalid: "は不正な値です"      

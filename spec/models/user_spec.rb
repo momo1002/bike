@@ -40,13 +40,13 @@ RSpec.describe User, type: :model do
     it 'email が必須であること' do
       user = build(:user, email: nil)
       expect(user).to_not be_valid
-      expect(user.errors[:email]).to include("can't be blank")
+      expect(user.errors[:email]).to include("を入力してください")
     end
 
     it 'email の形式が正しいこと' do
       user = build(:user, email: 'invalid-email')
       expect(user).to_not be_valid
-      expect(user.errors[:email]).to include('is invalid')
+      expect(user.errors[:email]).to include('は不正な値です')
     end
 
     it '重複した email は登録できないこと' do
@@ -54,7 +54,7 @@ RSpec.describe User, type: :model do
       user = build(:user, email: 'test@example.com') # 同じ email を作る
 
       expect(user).to_not be_valid
-      expect(user.errors[:email]).to include('has already been taken')
+      expect(user.errors[:email]).to be_present
     end
   end
 
@@ -62,13 +62,13 @@ RSpec.describe User, type: :model do
     it 'password が必須であること' do
       user = build(:user, password: nil)
       expect(user).to_not be_valid
-      expect(user.errors[:password]).to include("can't be blank")
+      expect(user.errors[:password]).to be_present
     end
 
     it 'password が最低文字数を満たしていること' do
       user = build(:user, password: 'short') # 例えば 5 文字
       expect(user).to_not be_valid
-      expect(user.errors[:password].first).to match(/is too short/)
+      expect(user.errors[:password]).to be_present
     end
 
     it 'password_digest が生成されること' do

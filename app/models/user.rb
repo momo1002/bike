@@ -10,5 +10,9 @@ class User < ApplicationRecord
                     uniqueness: {message: "の登録に失敗しました"},
                     format: { with: VALID_EMAIL_REGEX }
 
-  validates :password, length: { minimum: 6 }
+  validates :password,
+          length: {
+            minimum: 6,
+            message: "は6文字以上で入力してください"
+          }
 end
