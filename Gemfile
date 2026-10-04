@@ -75,3 +75,6 @@ gem 'json', '~> 2.10'
 group :development do
   gem "bullet"
 end
+
+gem "cloudinary"
+gem "activestorage-cloudinary-service"
